@@ -1,4 +1,8 @@
 
+using FinApp.Infrastructure;
+using FinApp.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace FinApp.Api
 {
     public class Program
@@ -13,7 +17,16 @@ namespace FinApp.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            #region Database
 
+            var connectionString = builder.Configuration.GetConnectionString("FinApp");
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(connectionString));
+
+            #endregion
+            #region Dependency Injection
+            builder.Services.AddInfrastructureDependencies();
+            #endregion
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

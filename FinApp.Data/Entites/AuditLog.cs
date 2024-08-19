@@ -9,24 +9,17 @@ namespace FinApp.Data.Entites
 {
     public class AuditLog : BaseEntity
     {
-        [Required]
+        //public AuditLog()
+        //{
+        //    User = new User();
+        //}
         public int UserId { get; set; } // Foreign Key to User
-
-        [Required]
-        [StringLength(50)]
         public string Action { get; set; } // e.g., Login, Transfer, Payment
-
-        [Required]
         public DateTime Timestamp { get; set; } // Timestamp of the action
-
-        [StringLength(500)]
         public string Details { get; set; } // Additional details about the action
 
         // Navigation properties
         public virtual User User { get; set; }
-        public AuditLog()
-        {
-            User = new User();
-        }
+      
     }
 }

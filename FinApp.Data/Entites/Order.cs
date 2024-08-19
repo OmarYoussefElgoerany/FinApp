@@ -11,29 +11,23 @@ namespace FinApp.Data.Entites
 {
     public class Order : BaseEntity
     {
-        [Required]
-        public int UserId { get; set; } // Foreign Key to User
-
-        [Required]
+        //public Order()
+        //{
+        //    User = new User();
+        //    OrderItems = new List<OrderItem>();
+        //    Payment = new Payment();
+        //}
         public decimal TotalAmount { get; set; }
-
-        [Required]
         public DateTime OrderDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
         public string Status { get; set; } // e.g., Pending, Completed, Cancelled
+        public int UserId { get; set; } // Foreign Key to User
+        public int PaymentID { get; set; } // Foreign Key to Order
 
         // Navigation properties
         public virtual User User { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual Payment Payment { get; set; }
-        public Order()
-        {
-            User = new User();
-            OrderItems = new List<OrderItem>();
-            Payment = new Payment();
-        }
+        
     }
 
 }
