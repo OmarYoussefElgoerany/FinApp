@@ -1,7 +1,9 @@
 
+using FinApp.Core;
 using FinApp.Infrastructure;
 using FinApp.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using SchoolProject.Service;
 
 namespace FinApp.Api
 {
@@ -25,7 +27,10 @@ namespace FinApp.Api
 
             #endregion
             #region Dependency Injection
-            builder.Services.AddInfrastructureDependencies();
+            builder.Services
+                .AddInfrastructureDependencies()
+                .AddServiceDependencies()
+                .AddCoreDependencies();
             #endregion
             var app = builder.Build();
 

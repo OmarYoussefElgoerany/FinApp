@@ -1,5 +1,10 @@
-﻿using FinApp.Data.Entites;
+﻿using FinApp.Core.Features.Accounts.Queries.Models;
+using FinApp.Core.Features.Accounts.Queries.Responses;
+using FinApp.Core.ResponseBase;
+using FinApp.Data.Entites;
 using FinApp.Infrastructure.Abstracts;
+using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinApp.Api.Controllers
@@ -8,16 +13,17 @@ namespace FinApp.Api.Controllers
     [ApiController]
     public class TestController
     {
-        private readonly IUserRepo userRepo;
+        private readonly IMediator mediator;
 
-        public TestController(IUserRepo userRepo)
+        public TestController(IMediator mediator)
         {
-            this.userRepo = userRepo;
+            this.mediator = mediator;
         }
         [HttpGet]
-        public async Task<List<User>>getAll()
+        public async Task<Response<List<GetAccountListResponse>>> getAll()
         {
-            return await userRepo.GetAllAsync();
+            var resp = await mediator.Send(new GetAccountListQuery());
+            return resp;
         }
     }
 }

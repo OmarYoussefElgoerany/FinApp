@@ -14,9 +14,17 @@ namespace FinApp.Infrastructure.Repositores
     public class AccountRepo:GenericRepositoryAsync<Account>, IAccountRepo
     {
         private readonly DbSet<AccountRepo> accountRepo;
+        private readonly AppDbContext appDbContext;
+
         public AccountRepo(AppDbContext appDbContext):base(appDbContext)
         {
             accountRepo = appDbContext.Set<AccountRepo>();
+            this.appDbContext = appDbContext;
+        }
+
+        public async Task<Account> GetByFullName(string fullName)
+        {
+            return await appDbContext.Set<Account>().Include(a => a.User).FirstOrDefaultAsync(a => a.User.FullName == fullName);
         }
     }
 }

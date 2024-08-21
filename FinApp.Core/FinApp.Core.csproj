@@ -12,4 +12,93 @@
     <ProjectReference Include="..\FinApp.Service\FinApp.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Accounts\Commands\Validatiors\" />
+    <Folder Include="Features\AuditLog\Commands\Handlers\" />
+    <Folder Include="Features\AuditLog\Commands\Models\" />
+    <Folder Include="Features\AuditLog\Commands\Validatiors\" />
+    <Folder Include="Features\AuditLog\Queries\Handlers\" />
+    <Folder Include="Features\AuditLog\Queries\Models\" />
+    <Folder Include="Features\AuditLog\Queries\Results\" />
+    <Folder Include="Features\BankAccount\Commands\Handlers\" />
+    <Folder Include="Features\BankAccount\Commands\Models\" />
+    <Folder Include="Features\BankAccount\Commands\Validatiors\" />
+    <Folder Include="Features\BankAccount\Queries\Handlers\" />
+    <Folder Include="Features\BankAccount\Queries\Models\" />
+    <Folder Include="Features\BankAccount\Queries\Results\" />
+    <Folder Include="Features\Budget\Commands\Handlers\" />
+    <Folder Include="Features\Budget\Commands\Models\" />
+    <Folder Include="Features\Budget\Commands\Validatiors\" />
+    <Folder Include="Features\Budget\Queries\Handlers\" />
+    <Folder Include="Features\Budget\Queries\Models\" />
+    <Folder Include="Features\Budget\Queries\Results\" />
+    <Folder Include="Features\Payment\Commands\Handlers\" />
+    <Folder Include="Features\Payment\Commands\Models\" />
+    <Folder Include="Features\Payment\Commands\Validatiors\" />
+    <Folder Include="Features\Payment\Queries\Handlers\" />
+    <Folder Include="Features\Payment\Queries\Models\" />
+    <Folder Include="Features\Payment\Queries\Results\" />
+    <Folder Include="Features\User\Commands\Handlers\" />
+    <Folder Include="Features\User\Commands\Models\" />
+    <Folder Include="Features\User\Commands\Validatiors\" />
+    <Folder Include="Features\User\Queries\Handlers\" />
+    <Folder Include="Features\User\Queries\Models\" />
+    <Folder Include="Features\User\Queries\Results\" />
+    <Folder Include="Features\Transaction\Commands\Handlers\" />
+    <Folder Include="Features\Transaction\Commands\Models\" />
+    <Folder Include="Features\Transaction\Commands\Validatiors\" />
+    <Folder Include="Features\Transaction\Queries\Handlers\" />
+    <Folder Include="Features\Transaction\Queries\Models\" />
+    <Folder Include="Features\Transaction\Queries\Results\" />
+    <Folder Include="Features\Transfer\Commands\Handlers\" />
+    <Folder Include="Features\Transfer\Commands\Models\" />
+    <Folder Include="Features\Transfer\Commands\Validatiors\" />
+    <Folder Include="Features\Transfer\Queries\Handlers\" />
+    <Folder Include="Features\Transfer\Queries\Models\" />
+    <Folder Include="Features\Transfer\Queries\Results\" />
+    <Folder Include="Features\Notification\Commands\Handlers\" />
+    <Folder Include="Features\Notification\Commands\Models\" />
+    <Folder Include="Features\Notification\Commands\Validatiors\" />
+    <Folder Include="Features\Notification\Queries\Handlers\" />
+    <Folder Include="Features\Notification\Queries\Models\" />
+    <Folder Include="Features\Notification\Queries\Results\" />
+    <Folder Include="Features\OrderItem\Commands\Handlers\" />
+    <Folder Include="Features\OrderItem\Commands\Models\" />
+    <Folder Include="Features\OrderItem\Commands\Validatiors\" />
+    <Folder Include="Features\OrderItem\Queries\Handlers\" />
+    <Folder Include="Features\OrderItem\Queries\Models\" />
+    <Folder Include="Features\OrderItem\Queries\Results\" />
+    <Folder Include="Features\Order\Commands\Handlers\" />
+    <Folder Include="Features\Order\Commands\Models\" />
+    <Folder Include="Features\Order\Commands\Validatiors\" />
+    <Folder Include="Features\Order\Queries\Handlers\" />
+    <Folder Include="Features\Order\Queries\Models\" />
+    <Folder Include="Features\Order\Queries\Results\" />
+    <Folder Include="Mapping\Payment\CommandMapping\" />
+    <Folder Include="Mapping\Payment\QueriesMapping\" />
+    <Folder Include="Mapping\AuditLog\CommandMapping\" />
+    <Folder Include="Mapping\AuditLog\QueriesMapping\" />
+    <Folder Include="Mapping\OrderItem\CommandMapping\" />
+    <Folder Include="Mapping\OrderItem\QueriesMapping\" />
+    <Folder Include="Mapping\Order\CommandMapping\" />
+    <Folder Include="Mapping\Order\QueriesMapping\" />
+    <Folder Include="Mapping\Notification\CommandMapping\" />
+    <Folder Include="Mapping\Notification\QueriesMapping\" />
+    <Folder Include="Mapping\Transaction\CommandMapping\" />
+    <Folder Include="Mapping\Transaction\QueriesMapping\" />
+    <Folder Include="Mapping\Transfer\CommandMapping\" />
+    <Folder Include="Mapping\Transfer\QueriesMapping\" />
+    <Folder Include="Mapping\Budget\CommandMapping\" />
+    <Folder Include="Mapping\Budget\QueriesMapping\" />
+    <Folder Include="Mapping\User\CommandMapping\" />
+    <Folder Include="Mapping\User\QueriesMapping\" />
+    <Folder Include="Mapping\BanckAccount\CommandMapping\" />
+    <Folder Include="Mapping\BanckAccount\QueriesMapping\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.4.0" />
+  </ItemGroup>
+
 </Project>
