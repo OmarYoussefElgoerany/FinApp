@@ -22,9 +22,11 @@ namespace FinApp.Infrastructure.Repositores
             this.appDbContext = appDbContext;
         }
 
-        public async Task<Account> GetByFullName(string fullName)
+        public async Task<Account> GetAccountIncludeUserAsync(int id)
         {
-            return await appDbContext.Set<Account>().Include(a => a.User).FirstOrDefaultAsync(a => a.User.FullName == fullName);
+            return await appDbContext.Set<Account>()
+                .Include(u => u.User)
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
     }
 }

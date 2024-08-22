@@ -10,6 +10,6 @@ namespace FinApp.Infrastructure.Abstracts
 {
     public interface IAccountRepo : IGenericRepoAsync<Account>
     {
-        Task<Account> GetByFullName(string fullName);
+        Task<Account> GetAccountIncludeUserAsync(int id);
     }
 }

@@ -13,8 +13,7 @@ namespace FinApp.Core.Mapping.AccountMapper
     {
         public void AddAccountMapping()
         {
-            CreateMap<AddAccountCommand, Account>()
-                .ForMember(des => des.UserId, opt => opt.MapFrom(src => src.UserId));
+            CreateMap<AddAccountCommand, Account>();
             CreateMap<Account, AddAccountResponse>()
                 .ForMember(des => des.UserName, opt => opt.MapFrom(src => src.User.FullName));
 

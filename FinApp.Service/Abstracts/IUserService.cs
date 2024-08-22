@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace FinApp.Service.Abstracts
 {
-    public interface IAccountService
+    public interface IUserService
     {
-        Task<List<Account>> GetAllAccountAsync(); 
-        Task<Account> AddAsync(Account account);
-        Task<Account> GetAccountIncludeUseAsync(int id);
-
+        Task<User> GetUserById(int id);
     }
 }

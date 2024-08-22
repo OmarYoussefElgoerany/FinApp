@@ -18,17 +18,19 @@ namespace FinApp.Core.Features.Accounts.Commands.Handlers
         private readonly IAccountService accountService;
         private readonly IMapper mapper;
 
-        public AccountCommandHandler(IAccountService accountService, IMapper mapper)
+        public AccountCommandHandler(IAccountService accountService, IMapper mapper, IUserService userServ)
         {
+            
             this.accountService = accountService;
             this.mapper = mapper;
         }
         public async Task<Response<AddAccountResponse>> Handle(AddAccountCommand request, CancellationToken cancellationToken)
         {
             
-            var accountMap = mapper.Map<Account>(request);
-            var addAcc = await accountService.AddAsync(accountMap);
-            var toAccResp = mapper.Map<AddAccountResponse>(addAcc);
+            var mapToAccount = mapper.Map<Account>(request);
+            var addAcc = await accountService.AddAsync(mapToAccount);
+            var acccount = await accountService.GetAccountIncludeUseAsync(mapToAccount.Id);
+            var toAccResp = mapper.Map<AddAccountResponse>(acccount);
 
             return Created(toAccResp);
         }

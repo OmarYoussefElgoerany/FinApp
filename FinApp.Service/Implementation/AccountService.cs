@@ -12,10 +12,12 @@ namespace FinApp.Service.Implementation
     public class AccountService : IAccountService
     {
         private readonly IAccountRepo accountRepo;
+        private readonly IUserService userService;
 
-        public AccountService(IAccountRepo accountRepo)
+        public AccountService(IAccountRepo accountRepo, IUserService userService)
         {
             this.accountRepo = accountRepo;
+            this.userService = userService;
         }
 
         public async Task<Account> AddAsync(Account account)
@@ -25,14 +27,17 @@ namespace FinApp.Service.Implementation
             return account;
         }
 
+        public async Task<Account> GetAccountIncludeUseAsync(int id)
+        {
+            return await accountRepo.GetAccountIncludeUserAsync(id);
+        }
+
+
         public async Task<List<Account>> GetAllAccountAsync()
         {
             return await accountRepo.GetAllAsync();
         }
 
-        public Task<Account> GetByFullName(string fullName)
-        {
-            accountRepo.get
-        }
+      
     }
 }

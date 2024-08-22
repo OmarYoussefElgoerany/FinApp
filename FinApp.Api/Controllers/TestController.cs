@@ -1,4 +1,6 @@
-﻿using FinApp.Core.Features.Accounts.Queries.Models;
+﻿using FinApp.Core.Features.Accounts.Commands.Models;
+using FinApp.Core.Features.Accounts.Commands.Response;
+using FinApp.Core.Features.Accounts.Queries.Models;
 using FinApp.Core.Features.Accounts.Queries.Responses;
 using FinApp.Core.ResponseBase;
 using FinApp.Data.Entites;
@@ -24,6 +26,11 @@ namespace FinApp.Api.Controllers
         {
             var resp = await mediator.Send(new GetAccountListQuery());
             return resp;
+        }
+        [HttpPost]
+        public async Task<Response<AddAccountResponse>> Add(AddAccountCommand addAccount)
+        {
+            return await mediator.Send(addAccount);
         }
     }
 }

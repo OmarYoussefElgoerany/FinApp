@@ -7,6 +7,7 @@ namespace FinApp.Core.Mapping.AccountMapper
         public AccountProfile()
         {
             GetAccountListMapping();
+            AddAccountMapping();
         }
     }
 }
