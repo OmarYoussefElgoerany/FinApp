@@ -9,7 +9,6 @@ namespace FinApp.Data.Entites
 {
     public abstract class BaseEntity
     {
-        [Key]
         public int Id { get; set; } // Primary Key
 
         [Required]

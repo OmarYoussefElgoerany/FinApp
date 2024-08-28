@@ -12,6 +12,8 @@ namespace FinApp.Service.Abstracts
         Task<List<Account>> GetAllAccountAsync(); 
         Task<Account> AddAsync(Account account);
         Task<Account> GetAccountIncludeUseAsync(int id);
+        Task<Account> GetAccountById(int id);
+
 
     }
 }

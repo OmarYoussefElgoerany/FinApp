@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 //namespace FinApp
 namespace FinApp.Core.Features.Accounts.Queries.Handlers
 {
-    public class AccountHandler : ResponseHandler ,IRequestHandler<GetAccountListQuery, Response<List<GetAccountListResponse>>>
+    public class AccountHandler : ResponseHandler ,IRequestHandler<GetAccountListQuery, Response<List<GetAccountListResponse>>>,IRequestHandler<GetAccountQuery,Response<GetAccountResponse>>
     {
         private readonly IAccountService accountService;
         private readonly IMapper mapper;
@@ -30,6 +30,17 @@ namespace FinApp.Core.Features.Accounts.Queries.Handlers
 
             var accountsRespons = await accountService.GetAllAccountAsync();
             return Success(mapper.Map < List<GetAccountListResponse>> (accountsRespons));
+        }
+
+        public async Task<Response<GetAccountResponse>> Handle(GetAccountQuery request, CancellationToken cancellationToken)
+        {
+            var account = await accountService.GetAccountIncludeUseAsync(request.Id);
+            if (account == null)
+            {
+                return NotFound<GetAccountResponse>();
+            }
+            var mappingToAccountResp = mapper.Map<GetAccountResponse>(account);
+            return Success(mappingToAccountResp);
         }
     }
 }

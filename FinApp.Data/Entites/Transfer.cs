@@ -20,6 +20,8 @@ namespace FinApp.Data.Entites
         public virtual Account SenderAccount { get; set; }
         public virtual Account ReceiverAccount { get; set; }
         public virtual BankAccount BankAccountReceiver { get; set; }
+        //public virtual BankAccount BankAccountSender { get; set; }//Edited
+
         //public Transfer()
         //{
         //    SenderAccount = new Account();

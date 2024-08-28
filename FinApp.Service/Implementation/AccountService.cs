@@ -27,6 +27,11 @@ namespace FinApp.Service.Implementation
             return account;
         }
 
+        public async Task<Account> GetAccountById(int id)
+        {
+            return await accountRepo.GetByIdAsync(id);
+        }
+
         public async Task<Account> GetAccountIncludeUseAsync(int id)
         {
             return await accountRepo.GetAccountIncludeUserAsync(id);
