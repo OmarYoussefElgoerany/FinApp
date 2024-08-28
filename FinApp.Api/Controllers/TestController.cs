@@ -1,4 +1,5 @@
-﻿using FinApp.Core.Features.Accounts.Commands.Models;
+﻿using FinApp.Api.Base;
+using FinApp.Core.Features.Accounts.Commands.Models;
 using FinApp.Core.Features.Accounts.Commands.Response;
 using FinApp.Core.Features.Accounts.Queries.Models;
 using FinApp.Core.Features.Accounts.Queries.Responses;
@@ -13,14 +14,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace FinApp.Api.Controllers
 {
     [ApiController]
-    public class TestController
+    public class TestController : BaseController
     {
-        private readonly IMediator mediator;
-
-        public TestController(IMediator mediator)
+        public TestController(IMediator mediator):base(mediator)
         {
-            this.mediator = mediator;
+            
         }
+
         [HttpGet(Router.AccountRouting.List)]
         public async Task<Response<List<GetAccountListResponse>>> getAll()
         {
@@ -28,14 +28,14 @@ namespace FinApp.Api.Controllers
             return resp;
         }
         [HttpPost(Router.AccountRouting.Create)]
-        public async Task<Response<AddAccountResponse>> Add(AddAccountCommand addAccount)
+        public async Task<IActionResult> Add(AddAccountCommand addAccount)
         {
-            return await mediator.Send(addAccount);
+            return NewResult(await mediator.Send(addAccount));
         }
         [HttpGet(Router.AccountRouting.GetByID)]
-        public async Task<Response<GetAccountResponse>> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            return await mediator.Send(new GetAccountQuery(id));
+            return NewResult(await mediator.Send(new GetAccountQuery(id)));
         }
 
     }
