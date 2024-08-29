@@ -13,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Accounts\Commands\Validatiors\" />
     <Folder Include="Features\AuditLog\Commands\Handlers\" />
     <Folder Include="Features\AuditLog\Commands\Models\" />
     <Folder Include="Features\AuditLog\Commands\Validatiors\" />
@@ -98,7 +97,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
     <PackageReference Include="MediatR" Version="12.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Serilog" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

@@ -3,6 +3,7 @@ using FinApp.Core;
 using FinApp.Infrastructure;
 using FinApp.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using SchoolProject.Core.MiddleWare;
 using SchoolProject.Service;
 
 namespace FinApp.Api
@@ -41,6 +42,7 @@ namespace FinApp.Api
                 app.UseSwaggerUI();
             }
 
+            app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
